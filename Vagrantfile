@@ -12,7 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     box.vm.provider "virtualbox" do |vm|
       vm.customize [
         'modifyvm', :id,
-        '--memory', '1024'
+        '--memory', '2048'
       ]
     end
 
@@ -22,12 +22,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       chef.cookbooks_path = "cookbooks"
       #chef.roles_path = "../crystals-cookbooks/roles"
       #chef.data_bags_path = "../crystals-cookbooks/data_bags"
-      chef.run_list = %w[ recipe[rabbitmq] recipe[ccrabbitmq] ]
+      chef.run_list = %w[ recipe[rabbitmq] ]
 
       chef.json = {
         rabbitmq: {
-          cluster: true,
-          cluster_disk_nodes: ["rabbit@queue01", "rabbit@queue02"]
+          #cluster: true,
+          #cluster_disk_nodes: ["rabbit@queue01", "rabbit@queue02"]
         }
       }
     end
@@ -42,7 +42,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     box.vm.provider "virtualbox" do |vm|
       vm.customize [
         'modifyvm', :id,
-        '--memory', '1024'
+        '--memory', '2048'
       ]
     end
 
@@ -50,12 +50,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       chef.cookbooks_path = "cookbooks"
       #chef.roles_path = "../crystals-cookbooks/roles"
       #chef.data_bags_path = "../crystals-cookbooks/data_bags"
-      chef.run_list = %w[ recipe[rabbitmq] recipe[ccrabbitmq] ]
+      chef.run_list = %w[ recipe[rabbitmq] ]
 
       chef.json = {
         rabbitmq: {
-          cluster: true,
-          cluster_disk_nodes: ["rabbit@queue01", "rabbit@queue02"]
+          #cluster: true,
+          #cluster_disk_nodes: ["rabbit@queue01", "rabbit@queue02"]
         }
       }
     end
